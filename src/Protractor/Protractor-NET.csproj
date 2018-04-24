@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>Protractor.Net.Standard</PackageId>
@@ -12,27 +11,21 @@
     <Product>Protractor</Product>
     <Company />
   </PropertyGroup>
-
   <ItemGroup>
     <Compile Remove="packages\**" />
     <EmbeddedResource Remove="packages\**" />
     <None Remove="packages\**" />
   </ItemGroup>
-
   <ItemGroup>
     <Compile Remove="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-
   <ItemGroup>
     <None Remove="packages.config" />
   </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Selenium.WebDriver" Version="3.6.0" />
-  </ItemGroup>
-
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
-
+  <ItemGroup>
+    <PackageReference Include="Selenium.WebDriver" Version="3.11.2" />
+  </ItemGroup>
 </Project>
