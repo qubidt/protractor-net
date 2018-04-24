@@ -10,21 +10,25 @@ namespace Protractor.Samples.PageObjects.Support
      */
     public class TutorialStep7Page
     {
-        [FindsBy(How = How.Custom, CustomFinderType = typeof(NgByModel), Using = "$ctrl.query")]
-        public IWebElement QueryInput { get; set; }
-
-        [FindsBy(How = How.Custom, CustomFinderType = typeof(NgByModel), Using = "$ctrl.orderProp")]
-        public IWebElement SortBySelect { get; set; }
-
-        [FindsBy(How = How.Custom, CustomFinderType = typeof(NgByRepeater), Using = "phone in $ctrl.phones")]
-        public IList<IWebElement> PhonesList { get; set; }
+        public IWebElement QueryInput {
+            get { return this.ngDriver.FindElement(NgBy.Model("$ctrl.query")); }
+        }
+        
+        public IWebElement SortBySelect
+        {
+            get { return this.ngDriver.FindElement(NgBy.Model("$ctrl.query")); }
+        }
+        
+        public IReadOnlyList<IWebElement> PhonesList
+        {
+            get { return this.ngDriver.FindElements(NgBy.Repeater("phone in $ctrl.phones")); }
+        }
 
         NgWebDriver ngDriver;
 
         public TutorialStep7Page(IWebDriver driver, string url)
         {
             ngDriver = new NgWebDriver(driver);
-            PageFactory.InitElements(ngDriver, this);
 
             ngDriver.Navigate().GoToUrl(url);
         }

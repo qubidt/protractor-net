@@ -21,7 +21,7 @@ namespace Protractor.Samples.Basic
             //driver = new PhantomJSDriver();
 
             // Using Chrome
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(TestContext.CurrentContext.TestDirectory);
 
             // Using Internet Explorer
             //var options = new InternetExplorerOptions() { IntroduceInstabilityByIgnoringProtectedModeSettings = true };
